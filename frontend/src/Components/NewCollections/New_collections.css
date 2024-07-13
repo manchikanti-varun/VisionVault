@@ -1,0 +1,149 @@
+.new-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    padding: 20px;
+}
+
+.new-collections h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.new-collections hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+    border: none;
+}
+
+.collections {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.collection-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+}
+
+.collection-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.collection-item p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.item-prices {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.item-price, .item-rating {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Media query for devices with max-width of 1024px */
+@media (max-width: 1024px) {
+    .new-collections {
+        padding: 16px;
+    }
+
+    .new-collections h1 {
+        font-size: 40px;
+    }
+
+    .collections {
+        gap: 20px;
+    }
+
+    .collection-item {
+        width: 200px;
+    }
+
+    .collection-item img {
+        height: 120px;
+    }
+
+    .collection-item p {
+        font-size: 16px;
+    }
+
+    .item-price, .item-rating {
+        font-size: 14px;
+    }
+}
+
+/* Media query for devices with max-width of 768px */
+@media (max-width: 768px) {
+    .new-collections h1 {
+        font-size: 32px;
+    }
+
+    .collections {
+        gap: 15px;
+    }
+
+    .collection-item {
+        width: 180px;
+    }
+
+    .collection-item img {
+        height: 100px;
+    }
+
+    .collection-item p {
+        font-size: 14px;
+    }
+
+    .item-price, .item-rating {
+        font-size: 12px;
+    }
+}
+
+/* Media query for devices with max-width of 480px */
+@media (max-width: 480px) {
+    .new-collections h1 {
+        font-size: 28px;
+    }
+
+    .collections {
+        gap: 10px;
+    }
+
+    .collection-item {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .collection-item img {
+        height: 150px;
+    }
+
+    .collection-item p {
+        font-size: 16px;
+    }
+
+    .item-price, .item-rating {
+        font-size: 14px;
+    }
+}

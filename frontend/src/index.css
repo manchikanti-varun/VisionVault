@@ -1,0 +1,76 @@
+
+* {
+  margin: 0;
+}
+
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+
+
+@media (max-width: 768px) {
+  body {
+     
+      font-size: 14px;
+  }
+
+ 
+  .container {
+      width: 100%;
+      padding: 10px;
+  }
+
+ 
+  .header {
+      font-size: 20px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+     
+      font-size: 16px;
+  }
+
+ 
+  .container {
+      width: 90%;
+      padding: 20px;
+  }
+
+ 
+  .header {
+      font-size: 24px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  body {
+     
+      font-size: 18px;
+  }
+
+ 
+  .container {
+      width: 80%;
+      padding: 30px;
+  }
+
+ 
+  .header {
+      font-size: 28px;
+  }
+}

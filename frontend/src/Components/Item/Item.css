@@ -1,0 +1,70 @@
+.item {
+    width: 350px;
+}
+
+.item p {
+    margin: 6px 0px;
+}
+
+.item-prices {
+    display: flex;
+    gap: 20px;
+}
+
+.item-price {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item-rating {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+
+.item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.external-link {
+    text-decoration: none;
+    color: #6B46C1;
+}
+
+/* Media query for devices with max-width of 768px */
+@media (max-width: 768px) {
+    .item {
+        width: 100%; /* Full width */
+        max-width: 350px; /* Maximum width */
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+
+    .item-prices {
+        flex-direction: column; /* Stack prices vertically */
+        align-items: flex-start; /* Align prices to the left */
+    }
+
+    .item-price,
+    .item-rating {
+        font-size: 16px; /* Decrease font size for prices and rating */
+    }
+}
+
+/* Media query for devices with max-width of 480px */
+@media (max-width: 480px) {
+    .item {
+        max-width: 100%; /* Full width */
+    }
+
+    .item-price,
+    .item-rating {
+        font-size: 14px; /* Further decrease font size for prices and rating */
+    }
+}
