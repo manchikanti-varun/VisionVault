@@ -1,43 +1,39 @@
-import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { HomeContext } from "../../Context/HomeContext";
+import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { HomeContext } from '../../Context/HomeContext';
 import './ProductDisplay.css';
 
 const ProductDisplay = () => {
-  const { productId } = useParams();
-  const { products, cartItems, addToCart, removeFromCart } = useContext(HomeContext);
+  const { templateId } = useParams();
+  const { all_product, cartItems, addToCart, removeFromCart } = useContext(HomeContext);
 
-  if (products.length === 0) {
-    return <p>Loading...</p>;
+  const template = all_product.find(product => product.id === parseInt(templateId));
+
+  if (!template) {
+    return <div>Product not found</div>;
   }
 
-  const product = products.find((e) => e.id === Number(productId));
-
-  if (!product) {
-    return <p>Product not found</p>;
-  }
-
-  const isInCart = cartItems[product.id] > 0;
+  const isInCart = cartItems[template.id] > 0;
 
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          {[product.image, product.image, product.image, product.image].map((img, index) => (
-            <img key={index} src={img} alt={`${product.name} ${index}`} />
+          {[template.image, template.image, template.image, template.image].map((img, index) => (
+            <img key={index} src={img} alt={`${template.name} ${index}`} />
           ))}
         </div>
       </div>
       <div className="productdisplay-img">
-        <img src={product.image} alt={product.name} className="productdisplay-main-img" />
+        <img src={template.image} alt={template.name} className="productdisplay-main-img" />
       </div>
       <div className="productdisplay-right">
-        <h1>{product.name}</h1>
+        <h1>{template.name}</h1>
         <div className="productdisplay-right-prices">
-          <h1>Price: {product.price}</h1>
-          <h1>Rating: {product.rating}</h1>
+          <h1>Price: ₹{template.price}</h1>
+          <h1>Rating: {template.rating} ★</h1>
           <h1>
-            Portfolio: <a href={product.url} target="_blank" rel="noopener noreferrer">Visit Portfolio</a>
+            Portfolio: <a href={template.url} target="_blank" rel="noopener noreferrer">Visit Portfolio</a>
           </h1>
         </div>
         <div className="productdisplay-right-description">
@@ -45,9 +41,9 @@ const ProductDisplay = () => {
         </div>
         <div className="productdisplay-buttons">
           {isInCart ? (
-            <button onClick={() => removeFromCart(product.id)}>REMOVE FROM CART</button>
+            <button onClick={() => removeFromCart(template.id)}>REMOVE FROM CART</button>
           ) : (
-            <button onClick={() => addToCart(product.id)}>ADD TO CART</button>
+            <button onClick={() => addToCart(template.id)}>ADD TO CART</button>
           )}
         </div>
       </div>

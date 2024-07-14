@@ -1,3 +1,4 @@
+/* CartItems.css */
 .cartitems {
     width: 100%;
     max-width: 800px;
@@ -9,37 +10,31 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.cartitems-format-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    padding: 10px 0;
+.cartitems table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cartitems th,
+.cartitems td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cartitems th {
+    background-color: #f2f2f2;
     font-weight: bold;
-    text-align: center;
 }
 
-.cartitems-format {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.cart-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cart-item img,
-.cart-item p {
-    margin: 10px 0;
+.cartitems td img {
+    display: block;
+    margin: 0 auto;
 }
 
 .carticon-product-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -70,19 +65,6 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
-    justify-self: center;
-}
-
-.cart-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-
-.cart-link img, .cart-link p {
-    margin-bottom: 10px;
 }
 
 /* Media query for devices with max-width of 768px */
@@ -91,15 +73,10 @@
         padding: 15px;
     }
 
-    .cartitems-format-main,
-    .cartitems-format {
-        grid-template-columns: repeat(2, 1fr);
+    .cartitems th,
+    .cartitems td {
+        padding: 8px;
         font-size: 14px;
-    }
-
-    .cart-item img,
-    .cart-item p {
-        margin: 5px 0;
     }
 
     .carticon-product-icon {
@@ -124,19 +101,10 @@
         padding: 10px;
     }
 
-    .cartitems-format-main,
-    .cartitems-format {
-        grid-template-columns: 1fr;
+    .cartitems th,
+    .cartitems td {
+        padding: 6px;
         font-size: 12px;
-    }
-
-    .cart-item {
-        align-items: flex-start;
-    }
-
-    .cart-item img,
-    .cart-item p {
-        margin: 3px 0;
     }
 
     .carticon-product-icon {

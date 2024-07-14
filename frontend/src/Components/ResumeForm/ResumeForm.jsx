@@ -67,7 +67,7 @@ const ResumeForm = ({ onSubmit }) => {
                 <label htmlFor="languages">Languages</label>
                 <input type="text" id="languages" name="languages" placeholder="Languages" value={formData.languages} onChange={handleChange} required />
             </div>
-            <button type="submit" className="submit-button">Submit</button>
+            <button type="submit" className="submit-button">Place Order</button>
         </form>
     );
 };

@@ -1,13 +1,16 @@
-// import p1_img from '../asserts-varun/p1.png';
-// import p2_img from '../asserts-varun/p2.png';
-// import p3_img from '../asserts-varun/p3.png';
-// import p4_img from '../asserts-varun/p4.png';
+import p1_img from '../asserts-varun/p1.png';
+import p2_img from '../asserts-varun/p2.png';
+import p3_img from '../asserts-varun/p3.png';
+import p4_img from '../asserts-varun/p4.png';
+import varun from '../asserts-varun/varun.png';
+import jyothi from '../asserts-varun/jyothi.png';
+import varun1 from '../asserts-varun/varun1.png';
 
 const allProducts = [
-  // { id: 1, image: p1_img, name: "Portfolio Alpha", price: 1200, rating: 4.3, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
-  // { id: 2, image: p2_img, name: "Portfolio Beta", price: 1400, rating: 4.6, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
-  // { id: 3, image: p3_img, name: "Portfolio Gamma", price: 1600, rating: 4.2, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
-  // { id: 4, image: p4_img, name: "Portfolio Delta", price: 1800, rating: 4.8, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
+  { id: 1, image: varun, name: "Varun_Portfolio", price: 1200, rating: 4.3, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
+  { id: 2, image: jyothi, name: "Jyothi_Portfolio", price: 1400, rating: 4.6, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
+  //{ id: 3, image: varun1, name: "Varun_Portfolio", price: 1600, rating: 4.2, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
+  { id: 4, image: p4_img, name: "Sai Harshitha", price: 1800, rating: 4.8, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
   // { id: 5, image: p1_img, name: "Portfolio Epsilon", price: 2000, rating: 4.5, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
   // { id: 6, image: p2_img, name: "Portfolio Zeta", price: 2200, rating: 4.7, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
   // { id: 7, image: p3_img, name: "Portfolio Eta", price: 2400, rating: 4.4, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
@@ -38,7 +41,7 @@ const allProducts = [
   // { id: 32, image: p4_img, name: "Portfolio Theta 2", price: 7400, rating: 4.4, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
   // { id: 33, image: p1_img, name: "Portfolio Iota 2", price: 7600, rating: 4.6, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
   // { id: 34, image: p2_img, name: "Portfolio Kappa 2", price: 7800, rating: 4.5, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
-  // { id: 35, image: p3_img, name: "Portfolio Lambda 2", price: 8000, rating: 4.3, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
+  //  { id: 35, image: p3_img, name: "Portfolio Lambda 2", price: 8000, rating: 4.3, url: "https://varunmanchikanti2024portfolio-manchikanti-varuns-projects.vercel.app/" },
 ];
 
 export default allProducts;

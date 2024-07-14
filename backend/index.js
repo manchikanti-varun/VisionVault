@@ -111,7 +111,7 @@ app.get("/getproducts", async (req, res) => {
         const products = await Product.find();
         res.json({
             success: 1,
-            products: products
+            products
         });
     } catch (error) {
         res.status(500).json({

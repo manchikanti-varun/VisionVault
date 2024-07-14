@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
 import './CartItems.css';
 import { HomeContext } from "../../Context/HomeContext";
-import remove_icon from '../asserts-varun/cart_cross_icon.png';
-import ResumeForm from "../ResumeForm/ResumeForm"; // Import the ResumeForm component
+import remove_icon from '../asserts-varun/cart_cross_icon.png'; // Corrected path
+import ResumeForm from "../ResumeForm/ResumeForm";
 
 const CartItems = () => {
     const { all_product, cartItems, removeFromCart } = useContext(HomeContext);
-    const [showForm, setShowForm] = useState(false); // State to control form visibility
-    const [currentUserId, setCurrentUserId] = useState(null); // State to store current user ID
+    const [showForm, setShowForm] = useState(false);
+    const [currentUserId, setCurrentUserId] = useState(null);
 
     useEffect(() => {
-        fetchCurrentUserId(); // Fetch current user ID when component mounts
+        fetchCurrentUserId();
     }, []);
 
     const fetchCurrentUserId = async () => {
@@ -36,8 +36,9 @@ const CartItems = () => {
         }
     };
 
-    const totalAmount = all_product.reduce((total, product) => {
-        if (cartItems[product.id]) {
+    const totalAmount = Object.keys(cartItems).reduce((total, productId) => {
+        const product = all_product.find(product => product.id === parseInt(productId));
+        if (product) {
             return total + product.price;
         }
         return total;
@@ -49,7 +50,7 @@ const CartItems = () => {
 
     const handleFormSubmit = async (formData) => {
         try {
-            formData.userId = currentUserId; // Attach current user ID to form data
+            formData.userId = currentUserId;
 
             const response = await fetch("/api/saveResumeData", {
                 method: "POST",
@@ -63,45 +64,67 @@ const CartItems = () => {
             if (response.ok) {
                 const result = await response.json();
                 console.log("Form Data Submitted: ", result);
-                // Handle success (e.g., show a success message or redirect)
             } else {
                 throw new Error("Failed to submit form data");
             }
         } catch (error) {
             console.error("Error submitting form data: ", error);
-            // Handle error (e.g., show an error message)
         }
     };
 
     const handleRemoveFromCart = (productId) => {
-        removeFromCart(productId); // Assuming removeFromCart function is provided by HomeContext
+        removeFromCart(productId);
     };
+
+    console.log("Cart Items:", cartItems); // Debugging
+    console.log("All Products:", all_product); // Debugging
 
     return (
         <div className="cartitems">
-            {/* Cart items rendering logic */}
-            {Object.keys(cartItems).map((productId) => (
-                <div key={productId} className="cart-item">
-                    {/* Display product details */}
-                    {/* Example: <p>{all_product.find(product => product.id === productId).name}</p> */}
-                    {/* Display remove icon with onClick handler */}
-                    <img
-                        src={remove_icon}
-                        alt="Remove"
-                        className="remove-icon"
-                        onClick={() => handleRemoveFromCart(productId)}
-                    />
-                </div>
-            ))}
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>Templates</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(cartItems).map((productId) => {
+                        const product = all_product.find(product => product.id === parseInt(productId));
+                        if (!product) {
+                            console.error(`Product with ID ${productId} not found`);
+                            return null;
+                        }
+                        return (
+                            <tr key={productId}>
+                                <td><img src={product.image} alt={product.name} className="carticon-product-icon" /></td>
+                                <td>{product.name}</td>
+                                <td>₹{product.price}</td>
+                                <td>₹{product.price}</td>
+                                <td>
+                                    <img
+                                        src={remove_icon}
+                                        alt="Remove"
+                                        className="remove-icon"
+                                        onClick={() => handleRemoveFromCart(productId)}
+                                    />
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+            
             <div className="cart-total">
                 <p>Total Amount: ₹{totalAmount}</p>
                 <button className="Proceed-to-checkout-button" onClick={handleProceedToCheckout}>
-                    Proceed To CheckOut
+                    Proceed To Checkout
                 </button>
             </div>
 
-            {/* Conditionally render the resume form */}
             {showForm && <ResumeForm onSubmit={handleFormSubmit} />}
         </div>
     );
